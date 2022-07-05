@@ -1,0 +1,35 @@
+
+    
+.color{
+    color: white;
+}
+.bordeer{
+    border: 2px solid black;
+    
+}
+.cardSection{
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+.noteCard{
+    border: 2px solid black;
+    margin : 5px;
+    width: 20vw;
+    min-width: 150px;
+}
+#notesSection{
+   
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px){
+    body{
+        text-align: center;
+    }
+    #searchtxt{
+        width: 50vw;
+    }
+}
