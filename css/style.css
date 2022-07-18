@@ -7,9 +7,28 @@
     border: 2px solid black;
     
 }
+#title{
+    margin: 1rem 0;
+    border-radius: 6px;
+    border-color: rgba(0, 0, 0, 0.175);
+    padding: 6px 20px;
+}
+#title:focus{
+   
+    
+}
+.notesTextArea{
+    display: block;
+    border-radius: 6px;
+    border-color: rgba(0, 0, 0, 0.175);
+    width: 100%;
+    padding: 1rem;
+    font-size:1.1em;
+}
 .cardSection{
     display: flex;
     flex-direction: row;
+    justify-content: center;
     margin: auto;
     overflow: hidden;
     flex-wrap: wrap;

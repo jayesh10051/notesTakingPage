@@ -9,11 +9,12 @@ function showItem() {
         document.getElementsByClassName("cardSection")[0].innerHTML=``;
         let notesArray = Array.from(JSON.parse(notes));
         notesArray.forEach(function(element,index) {
-            let text = element;
+            let text = element.noteText;
+            let title = element.noteTitle;
             let card = document.createElement("div");
             card.classList = "card-body noteCard";
             card.id = `card${index}`;
-            card.innerHTML= `<h5 class="card-title">Card ${index + 1}</h5>
+            card.innerHTML= `<h5 class="card-title">${title}</h5>
             <p class="card-text">
               ${text}
             </p>
@@ -31,23 +32,27 @@ let button = document.getElementById("addButton");
 button.addEventListener("click",function addnote() {
     let notes = localStorage.getItem("notes");
     let notetxt = document.getElementById("floatingTextarea2").value;
+    let notetitle = document.getElementById("title").value;
+    let note = {noteText : notetxt,
+                noteTitle : notetitle};
     if (notetxt == "") {
         alert("type something in text area");
     }
     else{
         if (notes == null) {
             let notesobj = [];
-            notesobj.push(notetxt);
+            notesobj.push(note);
             localStorage.setItem("notes",JSON.stringify(notesobj))
         }
         else{
             let notesobj = JSON.parse(notes);
             let notesArray = Array.from(notesobj);
-            notesArray.push(notetxt);
+            notesArray.push(note);
             notes = JSON.stringify(notesArray);
             localStorage.setItem("notes",notes);
         }
     }
+    document.getElementById("title").value = ``;
     document.getElementById("floatingTextarea2").value=``;
     showItem();
 });
