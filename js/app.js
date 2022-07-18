@@ -72,9 +72,10 @@ function deleteNote(index) {
 let searchArea = document.getElementById(`searchtxt`);
 let notes = JSON.parse(localStorage.getItem(`notes`));
 searchArea.addEventListener("input",function searchtxt(){
+    console.log("search detected");
     let inputtxt = searchArea.value;
     Array.from(notes).forEach(function(element,index) {
-         if (element.includes(inputtxt)) {
+         if (element.noteTitle.includes(inputtxt) || element.noteText.includes(inputtxt)) {
             document.getElementById(`card${index}`).style.display = "block";
          }
          else{
